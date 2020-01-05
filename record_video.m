@@ -1,11 +1,11 @@
 function writerObj_out=record_video(details,writerObj,action)
 % Code created by Jamie M Johns 2019
 %  Github repository: https://github.com/JamieMJohns/Record-videos-of-animated-ouputs-Matlab-
-%details={fps(double/single),video_title,overwrite} (overwrite=1= overwrite if same name exist,overwrite=other = add "_n" (n=int) if file name exist)
-%           note that video_title = string and should not include video type (output is always AVI and '.avi' is always added to file name)                           
-%action (if)= 1 = intialise video (for action 1, writerObj can be anything, for =2 or 3;  writerObj must be created object from action=1)
+%details={fps(double or single precis.),video_title,overwrite} (overwrite=1= overwrite if same name exist,overwrite=other = add "_n" (n=int) if file name exist)
+%           note that video_title = string and should not include video type (output is always AVI and '.avi' is always added to specified file name)                           
+%action (if)= 1 = intialise video writer object (for action 1, "writerObj" can be anything [i.e - nan], for =2 or 3;  writerObj must be created object from action=1 [writerObj_out])
 %action (if)= 2 = capture frame;
-%action (if)= 3 = stop recording;
+%action (if)= 3 = stop recording [close writer object];
 %writerObj = input video object (can be anyvalue for action=1)
 %writerObj_out = output video object (created from action=1, for action=2 and 3; input (writerObj) should be that created from action=1)
 % EXAMPLE USAGE (in code) #################################################################################
@@ -13,8 +13,8 @@ function writerObj_out=record_video(details,writerObj,action)
 %   video_object=record_video(record_details,nan,1); %<<<<<<<<<<<< [1] initial video object 
 %       figure(1);
 %       for k=1:300; %for each frame to draw [with 300 frames and 30fps, final video run time will be 10 seconds]
-%           {{{code to update frame}}}
-%           drawnow %<<<<<<<<<< necessary to update frame
+%           {{{code to update figure with kth frame of animation}}}
+%           drawnow %<<<<<<<<<< necessary to update figure (visually)
 %           video_object=record_video(record_details,video_object,2); %<<<<<<<<<<<<<< [2] capture current frame 
 %       end
 %      video_object=record_video(record_details,video_object,3); %<<<<<<<<<<<<<< [3] close video object (finish recording)
@@ -33,13 +33,13 @@ if action==1 %intialise $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
               % check that no file exists with the same name, and modify if exists and overwritevid~=0
                
                 fprintf('\nVideo object created for video recording\n The output path of your video is:\n %s\n',pwd) %print, in command window, location of saved video file
-  k=1; %integer for renamed video (if file already exists)
-  vidnameo=vidname; %original vid name
-       while (exist([pwd '\' vidname '.avi'], 'file')==2) && (overwrite~=1)%pwd=current directory (exist(n,'file')=2 if exist ,=other if not)    
-       vidname=[vidnameo '_' num2str(k)];  %renam video to "(specifiedvideoname)_n' , n=integer
-        fprintf('\n    This file already exists so file is renamed to:\n    %s\n',[vidname '.avi'])
-   k=k+1;
-       end
+                k=1; %integer for renamed video (if file already exists)
+                vidnameo=vidname; %original vid name
+                     while (exist([pwd '\' vidname '.avi'], 'file')==2) && (overwrite~=1)%pwd=current directory (exist(n,'file')=2 if exist ,=other if not)    
+                     vidname=[vidnameo '_' num2str(k)];  %renam video to "(specifiedvideoname)_n' , n=integer
+                      fprintf('\n    This file already exists so file is renamed to:\n    %s\n',[vidname '.avi'])
+                 k=k+1;
+                     end
               %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
               
         writerObj0 = VideoWriter([vidname '.avi']); %initiate writer object and .avi file (can probably use others such as .wmv but I use .avi)
