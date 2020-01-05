@@ -23,7 +23,7 @@ function writerObj_out=record_video(details,writerObj,action)
 
 fps=details{1}; %frames pers second for your video
 vidname=details{2};  % NAME OF YOUR VIDEO vidname must include ' ' (define vidname as string)
-overwrite=details{3};% overwrite_parameter (=1 equation overwrite video if video of same filename exists (and is avi)
+overwrite=details{3};% overwrite_condition (=1 equation overwrite video if video of same filename exists (and is avi)
                      %                     (=0 don't overwrite, create file of same name with suffix "_{integer}"
                     
                     
