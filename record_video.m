@@ -33,7 +33,7 @@ if action==1 %intialise
                 fprintf('\nVideo object created for video recording\n The output path of your video is:\n %s\n',pwd) %print, in command window, location of saved video file
   k=1; %integer for renamed video (if file already exists)
   vidnameo=vidname; %original vid name
-       while (exist([pwd '\' vidname '.avi'], 'file')==2) && (overwrite~=1)%pwd=current directory (=2 if exist ,=0 if not)    
+       while (exist([pwd '\' vidname '.avi'], 'file')==2) && (overwrite~=1)%pwd=current directory (exist(n,'file')=2 if exist ,=other if not)    
        vidname=[vidnameo '_' num2str(k)];  %renam video to "(specifiedvideoname)_n' , n=integer
         fprintf('\n    This file already exists so file is renamed to:\n    %s\n',[vidname '.avi'])
    k=k+1;
