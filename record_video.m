@@ -6,15 +6,15 @@ function writerObj_out=record_video(details,writerObj,action)
 %action = 2 = capture frame;
 %action = 3 = stop recording;
 % EXAMPLE USAGE (in code) #################################################################################
-%   record_details={30,'my_video',0} %<<<<<<< fps secon,title,and overwrite condition
-%   video_object=record_video(record_details,nan,1); %<<<<<<<<<<<< initial video object (1)
-%       figure(1); %{{draw first frame}}
+%   record_details={30,'my_video',0} %<<<<<<< {fps,title,and overwrite condition(0,1)}
+%   video_object=record_video(record_details,nan,1); %<<<<<<<<<<<< [1] initial video object 
+%       figure(1);
 %       for k=1:300; %for each frame to draw [with 300 frames and 30fps, final video run time will be 10 seconds]
-%           {code to update frame}
+%           {{{code to update frame}}}
 %           drawnow %<<<<<<<<<< necessary to update frame
-%           video_object=record_video(record_details,video_object,2); %<<<<<<<<<<<<<< capture frame (2)
+%           video_object=record_video(record_details,video_object,2); %<<<<<<<<<<<<<< [2] capture current frame 
 %       end
-%      video_object=record_video(record_details,video_object,3); %<<<<<<<<<<<<<< close video object (3)
+%      video_object=record_video(record_details,video_object,3); %<<<<<<<<<<<<<< [3] close video object (finish recording)
 %################################################################################################
 
 
