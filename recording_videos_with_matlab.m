@@ -50,13 +50,13 @@
 fps=30; %frames pers second for your video
 recording=1; %=1 if record animated output
 vidname='myfirstvideo';  % NAME OF YOUR VIDEO vidname must include ' ' (define vidname as string)
-overwritevid=0;% if =0 and video with same file name as above; '_new' will added on to file name to avoid overwriting
+overwrite=0;% if =0 and video with same file name as above; '_new' will added on to file name to avoid overwriting
                % else file with same as above (defined by myfirstvideo) will be overwrittern during record
  %=================================================================================================================  
     if recording == 1 %if video is being recorded
         
             %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         
-              % check that no file exists with the same name, and modify if exists and overwritevid~=0
+              % check that no file exists with the same name, and modify if exists and overwrite~=0
                 fprintf('\n The output path of your video is:\n %s\n',pwd) %print, in command window, location of saved video file
   k=1; %integer for renamed video (if file already exists)
   vidnameo=vidname; %original vid name
@@ -122,7 +122,7 @@ clc       % clear command window
 fps=30;
 recording=1; 
 vidname='myfirstvideo';
-overwritevid=0;
+overwrite=0;
 %=========================================================
 if recording == 1
       fprintf('\n The output path of your video is:\n %s\n',pwd) %print, in command window, location of saved video file
