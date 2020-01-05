@@ -6,3 +6,9 @@ https://www.youtube.com/watch?v=y9XmuxzAFds <br />
 Note: the time that it takes to animate a matlab output (and also record it as video file) will be dependent on your pc specifications. Matlab has an inbuilt function for which you can benchmark your pc against other pc that have performed the same test, this is the bench() function. (In Matlab, type "help bench" (without quoations) for information about the bench function).<br />
   
 Also note that since the creation of the matlab file  (2016), some of the coding techniques I have used may have since be outdated by at least my standards; I will eventually go through the code in further depth,update it and then re upload.
+
+# 2019: general usage function file added ############################## <br />
+  "record_video.m" is a function file that follows section 1  <br />
+  of "recording_videos_with_matlab.m", <br /> 
+  details for usage of this function file is provide within the function file. <br />
+############################################################################# <br />
